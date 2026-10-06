@@ -50,3 +50,10 @@ h1, h2, h3, h4, .navbar-brand {
   color: var(--crema);
   font-size: 1.6rem;
 }
+
+.tarjeta { cursor: pointer; }
+
+.ficha-img {
+  min-height: 260px;
+  background-color: var(--salvia);
+}

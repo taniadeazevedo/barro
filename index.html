@@ -44,7 +44,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="bi bi-bag"></i>
-                            <span class="badge rounded-pill text-bg-dark">0</span>
+
+                            <span id="contadorCarrito" class="badge rounded-pill text-bg-dark">0</span>
                         </a>
                     </li>
                 </ul>
@@ -125,6 +126,35 @@
             </div>
         </div>
     </section>
+
+    <!-- FICHA DE PRODUCTO (modal) -->
+    <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0">
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+
+                        <div class="col-md-6">
+                            <div class="ficha-img h-100 rounded-start"></div>
+                        </div>
+
+                        <div class="col-md-6 p-4 d-flex flex-column">
+                            <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"
+                                aria-label="Cerrar"></button>
+                            <p id="modalCategoria" class="text-uppercase small text-body-secondary mb-1"></p>
+                            <h2 id="modalTitulo" class="h3"></h2>
+                            <p id="modalDescripcion"></p>
+                            <p id="modalPrecio" class="fs-4 fw-bold"></p>
+                            <button id="modalAnadir" type="button" class="btn btn-arcilla btn-lg mt-auto">
+                                Añadir al carrito
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
