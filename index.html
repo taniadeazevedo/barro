@@ -107,10 +107,19 @@
         </div>
     </section>
 
+
+
     <!-- CATÁLOGO (NUEVO, paso 2: lo pintará JavaScript) -->
     <section id="tienda" class="py-5">
         <div class="container">
             <h2 class="mb-4">La colección</h2>
+
+            <div class="d-flex flex-wrap gap-2 align-items-center mb-4">
+                <div id="filtros" class="d-flex flex-wrap gap-2"></div>
+                <input id="buscador" type="search" class="form-control ms-md-auto" style="max-width: 260px;"
+                    placeholder="Buscar...">
+            </div>
+
             <div id="catalogo" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
                 <!-- aquí JavaScript pintará las tarjetas -->
             </div>
