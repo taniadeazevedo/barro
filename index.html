@@ -21,7 +21,6 @@
 
 <body>
 
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -54,37 +53,74 @@
         </div>
     </nav>
 
+    <!-- HERO -->
+    <header class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+                    <p class="text-uppercase small fw-bold mb-2" style="letter-spacing: .15em; color: var(--arcilla);">
+                        Handmade with love
+                    </p>
+                    <h1 class="display-4 mb-3">La imperfección perfecta para vestir tu mesa.</h1>
+                    <p class="lead mb-4">
+                        Una oda a la belleza de lo esencial. Diseños orgánicos y texturas serenas que rinden homenaje a
+                        la nobleza de la materia prima, donde cada curva e irregularidad evoca la calidez de lo
+                        artesanal.
+                    </p>
+                    <a href="#" class="btn btn-arcilla btn-lg me-2">Ver colección</a>
+                    <a href="#" class="btn btn-outline-dark btn-lg">Sobre nosotros</a>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="hero-img rounded-4"></div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- VENTAJAS (NUEVO) -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4 text-center">
+
+                <div class="col-md-4">
+                    <div class="icono-ventaja mb-3"><i class="bi bi-stars"></i></div>
+                    <h3 class="h5">Hecho a mano</h3>
+                    <p class="text-body-secondary mb-0">Cada pieza se modela una a una, por eso no hay dos iguales.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="icono-ventaja mb-3"><i class="bi bi-box-seam"></i></div>
+                    <h3 class="h5">Envío cuidado</h3>
+                    <p class="text-body-secondary mb-0">Embalaje protegido para que llegue entera a tu casa.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="icono-ventaja mb-3"><i class="bi bi-arrow-repeat"></i></div>
+                    <h3 class="h5">Devolución fácil</h3>
+                    <p class="text-body-secondary mb-0">Tienes 30 días para devolverla si no es lo que esperabas.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO (NUEVO, paso 2: lo pintará JavaScript) -->
+    <section id="tienda" class="py-5">
+        <div class="container">
+            <h2 class="mb-4">La colección</h2>
+            <div id="catalogo" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                <!-- aquí JavaScript pintará las tarjetas -->
+            </div>
+        </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
 </body>
-
-<!-- HERO -->
-<header class="py-5">
-    <div class="container">
-        <div class="row align-items-center g-5">
-
-            <div class="col-lg-6">
-                <p class="text-uppercase small fw-bold mb-2" style="letter-spacing: .15em; color: var(--arcilla);">
-                    Handmade with love
-                </p>
-                <h1 class="display-4 mb-3">La imperfección perfecta para vestir tu mesa.</h1>
-                <p class="lead mb-4">
-                    Una oda a la belleza de lo esencial. Diseños orgánicos y texturas serenas que rinden homenaje a la
-                    nobleza de la materia prima, donde cada curva e irregularidad evoca la calidez de lo artesanal.
-                </p>
-                <a href="#" class="btn btn-arcilla btn-lg me-2">Ver colección</a>
-                <a href="#" class="btn btn-outline-dark btn-lg">Sobre nosotros</a>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="hero-img rounded-4"></div>
-            </div>
-
-        </div>
-    </div>
-</header>
 
 </html>
