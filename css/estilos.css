@@ -12,3 +12,6 @@
 h1, h2, h3, h4, .navbar-brand {
   font-family: "Fraunces", serif;
 }
+
+.navbar { background-color: var(--crema); }
+.nav-link { color: var(--carbon); }
