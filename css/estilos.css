@@ -1,8 +1,9 @@
 :root {
-  --arcilla: #B5654A;
-  --crema:   #F4EDE4;
-  --salvia:  #8A9A83;
-  --carbon:  #2B2724;
+  /* Tonalidades naturales con matices desaturados, profundos y elegantes */
+  --arcilla: #9E5843; /* Un terracota cálido, ligeramente más oscuro y terroso */
+  --crema:   #F5F0EB; /* Un blanco roto con matiz lino, sobrio y luminoso */
+  --salvia:  #6B7A6A; /* Un verde eucalipto desaturado, más sereno y vegetal */
+  --carbon:  #1C1917; /* Un negro ebanistería profundo, suave pero con más contraste */
 
   --bs-body-bg: var(--crema);
   --bs-body-color: var(--carbon);
@@ -13,5 +14,26 @@ h1, h2, h3, h4, .navbar-brand {
   font-family: "Fraunces", serif;
 }
 
-.navbar { background-color: var(--crema); }
+.navbar {
+  background-color: var(--crema);
+  border-bottom: 1px solid rgba(28, 25, 23, .12);
+}
 .nav-link { color: var(--carbon); }
+
+/* Botón de la marca */
+.btn-arcilla {
+  background-color: var(--arcilla);
+  border-color: var(--arcilla);
+  color: var(--crema);
+}
+.btn-arcilla:hover {
+  background-color: #864a38;
+  border-color: #864a38;
+  color: var(--crema);
+}
+
+/* Marcador de imagen (se cambia por una foto más adelante) */
+.hero-img {
+  min-height: 380px;
+  background-color: var(--salvia);
+}
