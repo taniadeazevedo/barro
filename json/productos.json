@@ -1,0 +1,9 @@
+[
+  { "id": 1, "nombre": "Taza Arcilla", "categoria": "Tazas", "precio": 18, "descripcion": "Taza de 300 ml esmaltada a mano." },
+  { "id": 2, "nombre": "Cuenco Duna", "categoria": "Cuencos", "precio": 24, "descripcion": "Cuenco hondo para sopas y ensaladas." },
+  { "id": 3, "nombre": "Plato Llano Sal", "categoria": "Platos", "precio": 22, "descripcion": "Plato llano de 26 cm, acabado mate." },
+  { "id": 4, "nombre": "Jarrón Ceniza", "categoria": "Jarrones", "precio": 48, "descripcion": "Jarrón artesanal de textura rugosa." },
+  { "id": 5, "nombre": "Taza Salvia", "categoria": "Tazas", "precio": 18, "descripcion": "Taza verde salvia con asa grande." },
+  { "id": 6, "nombre": "Cuenco Piedra", "categoria": "Cuencos", "precio": 26, "descripcion": "Cuenco gris con borde irregular." },
+  { "id": 7, "nombre": "Cuenco Piedra", "categoria": "Cuencos", "precio": 26, "descripcion": "Cuenco gris con borde irregular." }
+] 
