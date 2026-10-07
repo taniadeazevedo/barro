@@ -57,3 +57,12 @@ h1, h2, h3, h4, .navbar-brand {
   min-height: 260px;
   background-color: var(--salvia);
 }
+
+.offcanvas { --bs-offcanvas-bg: var(--crema); }
+
+.miniatura {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  background-color: var(--salvia);
+}

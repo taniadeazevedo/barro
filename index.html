@@ -42,7 +42,8 @@
                     <li class="nav-item"><a class="nav-link" href="#">Colecciones</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Sobre nosotros</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#panelCarrito"
+                            aria-controls="panelCarrito">
                             <i class="bi bi-bag"></i>
 
                             <span id="contadorCarrito" class="badge rounded-pill text-bg-dark">0</span>
@@ -152,6 +153,24 @@
 
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARRITO (panel lateral) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="panelCarrito" aria-labelledby="tituloCarrito">
+        <div class="offcanvas-header">
+            <h2 class="offcanvas-title h5" id="tituloCarrito">Tu carrito</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="lineasCarrito" class="flex-grow-1"></div>
+            <div class="border-top pt-3">
+                <div class="d-flex justify-content-between fs-5 mb-3">
+                    <span>Total</span>
+                    <strong id="totalCarrito">0,00 €</strong>
+                </div>
+                <button id="btnComprar" type="button" class="btn btn-arcilla btn-lg w-100">Finalizar compra</button>
             </div>
         </div>
     </div>

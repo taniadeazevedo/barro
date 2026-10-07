@@ -45,8 +45,74 @@ function anadirAlCarrito(id) {
         carrito.push({ id: id, cantidad: 1 });
     }
 
+    refrescarCarrito();
+}
+
+function cambiarCantidad(id, cambio) {
+    const linea = carrito.find(l => l.id === id);
+    if (!linea) return;
+
+    linea.cantidad += cambio;
+
+    if (linea.cantidad <= 0) {
+        quitarDelCarrito(id);
+    } else {
+        refrescarCarrito();
+    }
+}
+
+function quitarDelCarrito(id) {
+    carrito = carrito.filter(l => l.id !== id);
+    refrescarCarrito();
+}
+
+function refrescarCarrito() {
     guardarCarrito();
     actualizarContador();
+    pintarCarrito();
+}
+
+function pintarCarrito() {
+    const contenedor = document.querySelector('#lineasCarrito');
+    contenedor.innerHTML = '';
+
+    if (carrito.length === 0) {
+        contenedor.innerHTML = '<p class="text-body-secondary">Tu carrito está vacío.</p>';
+    }
+
+    let total = 0;
+
+    for (const linea of carrito) {
+        const producto = todosLosProductos.find(p => p.id === linea.id);
+        if (!producto) continue;
+
+        const subtotal = producto.precio * linea.cantidad;
+        total += subtotal;
+
+        const fila = document.createElement('div');
+        fila.className = 'd-flex align-items-center gap-3 py-3 border-bottom';
+        fila.dataset.id = producto.id;
+
+        fila.innerHTML = `
+      <div class="miniatura rounded"></div>
+      <div class="flex-grow-1">
+        <h3 class="h6 mb-1">${producto.nombre}</h3>
+        <small class="text-body-secondary">${formatearPrecio(producto.precio)}</small>
+        <div class="btn-group btn-group-sm mt-2" role="group">
+          <button type="button" class="btn btn-outline-dark btn-menos" aria-label="Quitar una unidad">−</button>
+          <span class="btn btn-outline-dark disabled">${linea.cantidad}</span>
+          <button type="button" class="btn btn-outline-dark btn-mas" aria-label="Añadir una unidad">+</button>
+        </div>
+      </div>
+      <div class="text-end">
+        <strong>${formatearPrecio(subtotal)}</strong><br>
+        <button type="button" class="btn btn-link btn-sm text-danger p-0 btn-quitar">Quitar</button>
+      </div>`;
+
+        contenedor.appendChild(fila);
+    }
+
+    document.querySelector('#totalCarrito').textContent = formatearPrecio(total);
 }
 
 /* ---------- CATÁLOGO ---------- */
@@ -145,6 +211,7 @@ async function iniciar() {
         todosLosProductos = await cargarProductos();
         pintarFiltros(todosLosProductos);
         aplicarFiltros();
+        pintarCarrito();
     } catch (error) {
         console.error('No se pudo cargar el catálogo:', error);
         document.querySelector('#catalogo').innerHTML =
@@ -178,6 +245,21 @@ async function iniciar() {
     document.querySelector('#modalAnadir').addEventListener('click', () => {
         anadirAlCarrito(productoAbierto);
         bootstrap.Modal.getInstance(document.querySelector('#modalProducto')).hide();
+    });
+
+    document.querySelector('#lineasCarrito').addEventListener('click', (e) => {
+        const fila = e.target.closest('[data-id]');
+        if (!fila) return;
+
+        const id = Number(fila.dataset.id);
+
+        if (e.target.closest('.btn-mas')) {
+            cambiarCantidad(id, 1);
+        } else if (e.target.closest('.btn-menos')) {
+            cambiarCantidad(id, -1);
+        } else if (e.target.closest('.btn-quitar')) {
+            quitarDelCarrito(id);
+        }
     });
 }
 
