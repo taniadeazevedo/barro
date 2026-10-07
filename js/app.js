@@ -113,6 +113,69 @@ function pintarCarrito() {
     }
 
     document.querySelector('#totalCarrito').textContent = formatearPrecio(total);
+    document.querySelector('#btnComprar').disabled = carrito.length === 0;
+}
+
+/* ---------- COMPRA ---------- */
+
+function abrirCompra() {
+    if (carrito.length === 0) return;
+
+    const lista = document.querySelector('#resumenPedido');
+    lista.innerHTML = '';
+
+    let total = 0;
+
+    for (const linea of carrito) {
+        const producto = todosLosProductos.find(p => p.id === linea.id);
+        if (!producto) continue;
+
+        const subtotal = producto.precio * linea.cantidad;
+        total += subtotal;
+
+        const li = document.createElement('li');
+        li.className = 'd-flex justify-content-between mb-1';
+        li.innerHTML = `<span>${linea.cantidad} × ${producto.nombre}</span><span>${formatearPrecio(subtotal)}</span>`;
+        lista.appendChild(li);
+    }
+
+    document.querySelector('#totalPedido').textContent = formatearPrecio(total);
+
+    const formulario = document.querySelector('#formCompra');
+    formulario.reset();
+    formulario.classList.remove('was-validated');
+
+    document.querySelector('#vistaFormulario').classList.remove('d-none');
+    document.querySelector('#vistaConfirmacion').classList.add('d-none');
+
+    const panel = bootstrap.Offcanvas.getInstance(document.querySelector('#panelCarrito'));
+    if (panel) panel.hide();
+
+    bootstrap.Modal.getOrCreateInstance(document.querySelector('#modalCompra')).show();
+}
+
+function confirmarPedido(e) {
+    e.preventDefault();
+
+    const formulario = e.target;
+
+    if (!formulario.checkValidity()) {
+        formulario.classList.add('was-validated');
+        return;
+    }
+
+    const datos = new FormData(formulario);
+    const numeroPedido = 'BARRO-' + String(Date.now()).slice(-6);
+
+    document.querySelector('#confNombre').textContent = datos.get('nombre');
+    document.querySelector('#confNumero').textContent = numeroPedido;
+    document.querySelector('#confEmail').textContent = datos.get('email');
+
+    document.querySelector('#vistaFormulario').classList.add('d-none');
+    document.querySelector('#vistaConfirmacion').classList.remove('d-none');
+
+    carrito = [];
+    refrescarCarrito();
 }
 
 /* ---------- CATÁLOGO ---------- */
@@ -246,6 +309,9 @@ async function iniciar() {
         anadirAlCarrito(productoAbierto);
         bootstrap.Modal.getInstance(document.querySelector('#modalProducto')).hide();
     });
+
+    document.querySelector('#btnComprar').addEventListener('click', abrirCompra);
+    document.querySelector('#formCompra').addEventListener('submit', confirmarPedido);
 
     document.querySelector('#lineasCarrito').addEventListener('click', (e) => {
         const fila = e.target.closest('[data-id]');
